@@ -5,7 +5,7 @@ export const headerNav = [
 ];
 
 export const moreNav = [
-  { label: "Experience", href: "/experience" },
+  { label: "Experience", href: "/work" },
   { label: "Skills", href: "/skills" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
