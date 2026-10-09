@@ -1,31 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const titles = [
-  "MERN Stack Developer",
-  "Frontend Developer",
-  "React & Next.js Developer",
-  "MCA Student | Problem Solver",
-];
+import { rotatingTitles } from "@/config/quote";
 
 export function RotatingTitle() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((previous) => (previous + 1) % titles.length);
-    }, 2500);
-
+      setIndex((prev) => (prev + 1) % rotatingTitles.length);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <p
-      aria-live="polite"
-      className="text-lg font-medium text-secondary sm:text-xl"
-    >
-      {titles[index]}
-    </p>
+    <div className="relative h-6 overflow-hidden">
+      {rotatingTitles.map((title, i) => (
+        <p
+          key={title}
+          className="absolute inset-0 text-sm font-medium tracking-wide text-secondary transition-all duration-700 ease-in-out sm:text-base"
+          style={{
+            opacity: i === index ? 1 : 0,
+            transform: i === index ? "translateY(0)" : "translateY(14px)",
+            filter: i === index ? "blur(0)" : "blur(6px)",
+          }}
+        >
+          {title}
+        </p>
+      ))}
+    </div>
   );
 }
