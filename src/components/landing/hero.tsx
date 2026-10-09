@@ -41,17 +41,19 @@ export function Hero() {
     <Container className="pt-4 sm:pt-0">
       <div className="animate-in-up-on-view flex flex-col gap-5">
         {/* Cover Banner */}
-        <div className="relative h-40 w-full shrink-0 overflow-hidden border border-foreground/15 sm:h-56">
-          <Image
-            src="/assets/nitish-header.jpeg"
-            alt="Nitish Kumar Bharti — Portfolio Cover"
-            fill
-            priority
-            sizes="(max-width: 640px) 100vw, 960px"
-            className="object-cover object-center"
-          />
+        <div className="corner-frame relative h-[calc(var(--grid-cell-size)*4)] overflow-visible">
+          <div className="relative size-full overflow-hidden border border-foreground/15">
+            <Image
+              src="/assets/nitish-header.jpeg"
+              alt="Nitish Kumar Bharti — Portfolio Cover"
+              fill
+              priority
+              sizes="(max-width: 640px) 100vw, 720px"
+              className="object-cover object-center"
+            />
 
-          <div className="pointer-events-none absolute inset-0 bg-black/10" />
+            <div className="pointer-events-none absolute inset-0 bg-black/10" />
+          </div>
         </div>
 
         {/* Timezone */}
@@ -72,7 +74,7 @@ export function Hero() {
             <SealCheck
               className="size-6 shrink-0 text-[#1D9BF0] sm:size-7"
               weight="fill"
-              aria-label="Profile badge"
+              aria-label="Verified"
             />
           </h1>
 
@@ -109,7 +111,9 @@ export function Hero() {
         <div className="flex flex-wrap gap-0.5">
           {socialLinks.map((link) => {
             const Icon = iconMap[link.icon];
-            const external = link.href.startsWith("https://");
+            const external =
+              link.href.startsWith("https://") ||
+              link.href.startsWith("http://");
 
             return (
               <Tooltip key={link.name} delayDuration={0}>
@@ -131,7 +135,7 @@ export function Hero() {
           })}
         </div>
 
-        {/* Spotify Activity */}
+        {/* Music Activity */}
         <div className="max-w-full pt-1">
           <SpotifyLastPlayed />
         </div>

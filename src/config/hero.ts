@@ -5,8 +5,8 @@ export const heroConfig = {
   avatar: "/assets/nitish-profile.jpg",
   avatarSmile: "/assets/nitish-smile.jpg",
 
-  email: "your-email@example.com",
-  calendarUrl: "https://cal.com/your-username",
+  email: process.env.NEXT_PUBLIC_EMAIL || "your-email@example.com",
+  calendarUrl: "https://cal.com/nitish-kumar-bharti/15min",
 
   timezone: "Asia/Kolkata",
   location: "Amritsar, India",

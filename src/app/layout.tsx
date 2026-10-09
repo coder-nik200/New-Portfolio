@@ -3,8 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-// import { CommandMenu } from "@/components/command-menu";
-// import { CursorPet } from "@/components/cursor-pet";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
@@ -51,16 +49,14 @@ export default function RootLayout({
             <div className="relative flex min-h-screen flex-col bg-green-grid">
               <SiteHeader />
 
-              <main className="page-content flex-1">{children}</main>
+              <main className="page-content w-full flex-1 px-4 pb-16 pt-20 sm:px-6 lg:px-8">
+                {children}
+              </main>
 
               <SiteFooter />
 
               {/* Bottom gradient */}
               <div className="pointer-events-none fixed inset-x-0 bottom-0 z-10 h-[60px] bg-gradient-to-t from-background/80 to-transparent [mask-image:linear-gradient(to_top,black_50%,transparent)]" />
-
-              {/* Interactive components */}
-              {/* <CommandMenu /> */}
-              {/* <CursorPet /> */}
             </div>
           </TooltipProvider>
         </ThemeProvider>

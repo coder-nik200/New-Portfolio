@@ -83,14 +83,13 @@ export function SiteHeader() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
+        <div className="mx-auto flex h-14 w-full max-w-(--portfolio-content-width) items-center justify-between gap-4 px-5 sm:px-0">
           <Link
             href="/"
             className="text-sm font-semibold tracking-tight text-foreground"
           >
             NK
           </Link>
-
           <div className="flex items-center gap-3 sm:gap-5">
             <nav
               aria-label="Main navigation"
