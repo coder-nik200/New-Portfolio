@@ -1,6 +1,7 @@
 import { Hero } from "@/components/landing/hero";
 import { TechStackSection } from "@/components/landing/tech-stack-section";
 import { FeaturedExperienceSection } from "@/components/landing/experience-section";
+import { GitHubContributions } from "@/components/landing/github";
 
 export default function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Hero />
       <TechStackSection />
       <FeaturedExperienceSection />
+      <GitHubContributions />
     </div>
   );
 }

@@ -370,3 +370,42 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
+
+
+/* GitHub Activity — Green Contribution Theme */
+.github-activity-green {
+  --github-level-0: #ebedf0;
+  --github-level-1: #9be9a8;
+  --github-level-2: #40c463;
+  --github-level-3: #30a14e;
+  --github-level-4: #216e39;
+}
+
+.dark .github-activity-green {
+  --github-level-0: #27272a;
+  --github-level-1: #0e4429;
+  --github-level-2: #006d32;
+  --github-level-3: #26a641;
+  --github-level-4: #39d353;
+}
+
+/* Contribution cell colors */
+.github-activity-green [data-level="0"] {
+  background-color: var(--github-level-0);
+}
+
+.github-activity-green [data-level="1"] {
+  background-color: var(--github-level-1);
+}
+
+.github-activity-green [data-level="2"] {
+  background-color: var(--github-level-2);
+}
+
+.github-activity-green [data-level="3"] {
+  background-color: var(--github-level-3);
+}
+
+.github-activity-green [data-level="4"] {
+  background-color: var(--github-level-4);
+}
