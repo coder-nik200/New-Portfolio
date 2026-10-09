@@ -32,7 +32,7 @@ interface GitHubButtonProps {
 }
 
 export const GitHubButton: React.FC<GitHubButtonProps> = ({
-  href = "https://github.com/GitHpriyanshu23/priyanshu-portfolio",
+  href = "https://github.com/coder-nik200/New-Portfolio.git",
   className,
 }) => {
   const [isHovered, setIsHovered] = useState(false);

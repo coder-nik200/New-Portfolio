@@ -45,7 +45,9 @@ export function SiteFooter() {
             © {year ?? "2026"} {siteConfig.name}
           </p>
 
-          <p className="mt-1">Built with curiosity, code, and coffee.</p>
+          <p className="mt-1">
+            Built with music, curiosity, and a few too many tabs open.
+          </p>
         </div>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6">
