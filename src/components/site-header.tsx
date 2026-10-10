@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { CaretDown, House, MagnifyingGlass } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
@@ -88,7 +89,7 @@ export function SiteHeader() {
             href="/"
             className="text-sm font-semibold tracking-tight text-foreground"
           >
-            NK
+            <Image src="/assets/logo.png" alt="logo" width={30} height={30} />
           </Link>
           <div className="flex items-center gap-3 sm:gap-5">
             <nav

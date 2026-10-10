@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   description:
     "Personal portfolio of Nitish Kumar Bharti, an MCA student and developer.",
   icons: {
-    icon: "/assets/avatar-smile.png",
-    apple: "/assets/avatar-smile.png",
+    icon: "/assets/logo.png",
+    apple: "/assets/logo.png",
   },
 };
 

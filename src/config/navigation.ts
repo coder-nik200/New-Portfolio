@@ -1,3 +1,5 @@
+import { label } from "motion/react-client";
+
 export const headerNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
