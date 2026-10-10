@@ -8,6 +8,7 @@ export const headerNav = [
 
 export const moreNav = [
   { label: "Work", href: "/work" },
+  { label: "Projects", href: "/projects" },
   { label: "Resume", href: "/resume" },
   { label: "Favourites", href: "/favourites" },
   { label: "Books", href: "/books" },

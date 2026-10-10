@@ -89,7 +89,13 @@ export function SiteHeader() {
             href="/"
             className="text-sm font-semibold tracking-tight text-foreground"
           >
-            <Image src="/assets/logo.png" alt="logo" width={30} height={30} />
+            <Image
+              src="/assets/logo.png"
+              alt="Logo"
+              width={30}
+              height={30}
+              priority
+            />
           </Link>
           <div className="flex items-center gap-3 sm:gap-5">
             <nav

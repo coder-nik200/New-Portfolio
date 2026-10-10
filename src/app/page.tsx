@@ -1,6 +1,7 @@
 import { Hero } from "@/components/landing/hero";
 import { TechStackSection } from "@/components/landing/tech-stack-section";
 import { FeaturedExperienceSection } from "@/components/landing/experience-section";
+import { FeaturedProjects } from "@/components/landing/projects";
 import { GitHubContributions } from "@/components/landing/github";
 import { QuoteVisitorCard } from "@/components/landing/quote-visitors";
 
@@ -10,6 +11,7 @@ export default function HomePage() {
       <Hero />
       <TechStackSection />
       <FeaturedExperienceSection />
+      <FeaturedProjects />
       <GitHubContributions />
       <QuoteVisitorCard />
     </div>
