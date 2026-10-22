@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CommandMenu } from "@/components/command-menu";
+import { Analytics } from '@vercel/analytics/next';
 
 import "./globals.css";
 
@@ -52,6 +53,7 @@ export default function RootLayout({
 
               <main className="page-content w-full flex-1 px-4 pb-16 pt-20 sm:px-6 lg:px-8">
                 {children}
+                <Analytics />
               </main>
 
               <SiteFooter />
