@@ -53,7 +53,6 @@ export default function RootLayout({
 
               <main className="page-content w-full flex-1 px-4 pb-16 pt-20 sm:px-6 lg:px-8">
                 {children}
-                <Analytics />
               </main>
 
               <SiteFooter />
@@ -64,6 +63,7 @@ export default function RootLayout({
             </div>
           </TooltipProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
