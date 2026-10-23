@@ -45,7 +45,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
           enableSystem
-          disableTransitionOnChange
+          // disableTransitionOnChange
         >
           <TooltipProvider delayDuration={200}>
             <div className="relative flex min-h-screen flex-col bg-green-grid">

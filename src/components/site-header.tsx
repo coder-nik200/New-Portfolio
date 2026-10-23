@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { headerNav, moreNav } from "@/config/navigation";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { Pattern } from "@/components/theme-toggle";
 import { LiquidGlassCard } from "@/lib/liquid-glass";
 
 function MoreMenu() {
@@ -145,7 +145,7 @@ export function SiteHeader() {
 
             <div className="hidden h-4 w-px bg-border sm:block" />
 
-            <ThemeToggle />
+            <Pattern />
           </div>
         </div>
       </header>
