@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { CaretDown, House, MagnifyingGlass } from "@phosphor-icons/react";
+import { CaretDown, MagnifyingGlass } from "@phosphor-icons/react";
 import { useEffect, useRef, useState } from "react";
 
-import { headerNav, moreNav } from "@/config/navigation";
+import { moreNav, gooeyNavItems } from "@/config/navigation";
 import { cn } from "@/lib/utils";
 import { Pattern } from "@/components/theme-toggle";
-import { LiquidGlassCard } from "@/lib/liquid-glass";
+import { GooeyNav } from "@/components/ui/gooey-nav";
 
 function MoreMenu() {
   const [open, setOpen] = useState(false);
@@ -75,8 +74,6 @@ function MoreMenu() {
 }
 
 export function SiteHeader() {
-  const pathname = usePathname();
-
   const openCommand = () => {
     document.dispatchEvent(new CustomEvent("open-command-menu"));
   };
@@ -85,10 +82,8 @@ export function SiteHeader() {
     <>
       <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-14 w-full max-w-(--portfolio-content-width) items-center justify-between gap-4 px-5 sm:px-0">
-          <Link
-            href="/"
-            className="text-sm font-semibold tracking-tight text-foreground"
-          >
+          {/* Logo */}
+          <Link href="/" aria-label="Home">
             <Image
               src="/assets/logo.png"
               alt="Logo"
@@ -97,39 +92,28 @@ export function SiteHeader() {
               priority
             />
           </Link>
-          <div className="flex items-center gap-3 sm:gap-5">
-            <nav
+
+          {/* Desktop Navigation */}
+          <div className="hidden items-center gap-5 md:flex">
+            <GooeyNav
+              items={gooeyNavItems}
+              size="sm"
+              activeColor="var(--foreground)"
+              activeLabelColor="var(--background)"
               aria-label="Main navigation"
-              className="hidden items-center gap-4 text-sm font-medium sm:flex sm:gap-5"
-            >
-              {headerNav.map((item) => {
-                const active = pathname === item.href;
+            />
 
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    aria-current={active ? "page" : undefined}
-                    className={cn(
-                      "transition-colors hover:text-foreground",
-                      active
-                        ? "font-semibold text-foreground"
-                        : "text-secondary",
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
+            {/* Existing More Dropdown */}
+            <MoreMenu />
+          </div>
 
-              <MoreMenu />
-            </nav>
-
+          {/* Right Actions */}
+          <div className="flex items-center gap-3">
             <button
               type="button"
               onClick={openCommand}
               aria-label="Open search"
-              className="hidden h-8 items-center gap-2 rounded-full border border-border bg-card/80 px-3 text-sm text-secondary shadow-sm transition-colors hover:text-foreground sm:inline-flex"
+              className="hidden h-8 items-center gap-2 rounded-full border border-border bg-card/80 px-3 text-sm text-secondary shadow-sm transition-colors hover:text-foreground md:inline-flex"
             >
               <MagnifyingGlass size={16} weight="bold" />
 
@@ -143,38 +127,12 @@ export function SiteHeader() {
               </span>
             </button>
 
-            <div className="hidden h-4 w-px bg-border sm:block" />
+            <div className="hidden h-4 w-px bg-border md:block" />
 
             <Pattern />
           </div>
         </div>
       </header>
-
-      {/* Search bar design  */}
-      {/* <div className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-4 sm:hidden">
-        <LiquidGlassCard className="p-1.5" contentClassName="flex-row gap-2">
-          <Link
-            href="/"
-            aria-label="Home"
-            className={cn(
-              "inline-flex size-10 items-center justify-center rounded-full text-secondary",
-              pathname === "/" && "bg-foreground text-background",
-            )}
-          >
-            <House size={20} />
-          </Link>
-
-          <button
-            type="button"
-            onClick={openCommand}
-            aria-label="Search portfolio"
-            className="inline-flex h-10 min-w-36 items-center justify-center gap-2 rounded-full px-5 text-sm font-medium text-foreground"
-          >
-            <MagnifyingGlass size={16} weight="bold" />
-            Search
-          </button>
-        </LiquidGlassCard>
-      </div> */}
     </>
   );
 }

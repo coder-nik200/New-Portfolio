@@ -1,9 +1,8 @@
-// import { label } from "motion/react-client";
-
-export const headerNav = [
+export const gooeyNavItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
+  { label: "Work", href: "/work" },
 ];
 
 export const moreNav = [
