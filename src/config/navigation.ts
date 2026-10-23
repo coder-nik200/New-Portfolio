@@ -1,4 +1,4 @@
-import { label } from "motion/react-client";
+// import { label } from "motion/react-client";
 
 export const headerNav = [
   { label: "Home", href: "/" },
@@ -12,6 +12,16 @@ export const moreNav = [
   { label: "Resume", href: "/resume" },
   { label: "Favourites", href: "/favourites" },
   { label: "Books", href: "/books" },
+];
+
+export const scrollProgressNav = [
+  { id: "home", label: "Home", href: "/" },
+  { id: "about", label: "About", href: "/about" },
+  { id: "projects", label: "Projects", href: "/projects" },
+  { id: "work", label: "Work", href: "/work" },
+  { id: "resume", label: "Resume", href: "/resume" },
+  { id: "favourites", label: "Favourites", href: "/favourites" },
+  { id: "books", label: "Books", href: "/books" },
 ];
 
 export const footerNav = [

@@ -150,7 +150,8 @@ export function SiteHeader() {
         </div>
       </header>
 
-      <div className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-4 sm:hidden">
+      {/* Search bar design  */}
+      {/* <div className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-4 sm:hidden">
         <LiquidGlassCard className="p-1.5" contentClassName="flex-row gap-2">
           <Link
             href="/"
@@ -173,7 +174,7 @@ export function SiteHeader() {
             Search
           </button>
         </LiquidGlassCard>
-      </div>
+      </div> */}
     </>
   );
 }

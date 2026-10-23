@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
+import { PortfolioProgress } from "@/components/portfolio-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -57,6 +58,7 @@ export default function RootLayout({
               </main>
 
               <SiteFooter />
+              <PortfolioProgress />
 
               {/* Bottom gradient */}
               <div className="pointer-events-none fixed inset-x-0 bottom-0 z-10 h-[60px] bg-gradient-to-t from-background/80 to-transparent [mask-image:linear-gradient(to_top,black_50%,transparent)]" />
