@@ -1,6 +1,3 @@
-// pikachu-pet.js
-// Adapted from Oneko.js: https://github.com/adryd325/oneko.js
-
 (function pikachuPet() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
