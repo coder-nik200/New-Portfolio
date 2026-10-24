@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
+import Script from "next/script";
 import { SiteHeader } from "@/components/site-header";
 import { PortfolioProgress } from "@/components/portfolio-progress";
 import { SiteFooter } from "@/components/site-footer";
@@ -42,6 +43,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans antialiased`}
         suppressHydrationWarning
       >
+        <Script
+          src="/pikachu-pet.js"
+          data-sprite="/pets/pikachu.png"
+          data-size="50"
+          strategy="afterInteractive"
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
