@@ -2,8 +2,8 @@ export const heroConfig = {
   name: "Nitish Kumar Bharti",
   coverImage: "/assets/nitish-header.jpeg",
 
-  avatar: "/assets/nitish-profile.jpg",
-  avatarSmile: "/assets/nitish-smile.jpg",
+  avatar: "/assets/nitish-profile.png",
+  avatarSmile: "/assets/nitish-smile.png",
 
   email: process.env.NEXT_PUBLIC_EMAIL || "your-email@example.com",
   calendarUrl: "https://cal.com/nitish-kumar-bharti/15min",
