@@ -1,5 +1,5 @@
-import { ProjectsGrid } from "@/components/projects-grid";
+import { ProjectsCarousel } from "@/components/projects-carousel";
 
-export function FeaturedProjects({ limit = 2 }: { limit?: number }) {
-  return <ProjectsGrid limit={limit} showViewAll />;
+export function FeaturedProjects() {
+  return <ProjectsCarousel />;
 }
