@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+
 import {
   CalendarBlank,
   EnvelopeSimple,
@@ -13,16 +16,19 @@ import {
   XLogo,
 } from "@phosphor-icons/react";
 
+import StarBorder, { type StarBorderTheme } from "@/components/StarBorder";
 import { ProfileAvatar } from "@/components/profile-avatar";
 import { Container } from "@/components/container";
 import { RotatingTitle } from "@/components/landing/rotating-title";
 import { SpotifyLastPlayed } from "@/components/landing/spotify-last-played";
 import { TimezoneWidget } from "@/components/landing/timezone-widget";
+
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
 import { heroConfig, socialLinks } from "@/config/hero";
 
 const iconMap = {
@@ -37,6 +43,29 @@ const iconMap = {
 export type SocialIconKey = keyof typeof iconMap;
 
 export function Hero() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const starTheme = mounted && resolvedTheme === "light" ? "light" : "dark";
+
+  const starProps = {
+    theme: starTheme as StarBorderTheme,
+    duration: 3,
+    thickness: 1.5,
+    radius: 999,
+    trailLength: 0.3,
+    stars: 1,
+    glow: 0.75,
+    sparkle: true,
+
+    hover: "brighten" as const,
+    clickPulse: true,
+  };
+
   return (
     <Container className="pt-4 sm:pt-0">
       <div className="animate-in-up-on-view flex flex-col gap-5">
@@ -80,25 +109,37 @@ export function Hero() {
 
           <RotatingTitle />
 
-          {/* Contact Buttons */}
+          {/* Animated Contact Buttons */}
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <Link
-              href={heroConfig.calendarUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3.5 py-1.5 text-xs font-medium text-background transition-opacity hover:opacity-90 sm:text-sm"
-            >
-              <CalendarBlank className="size-3.5 sm:size-4" weight="bold" />
-              Book a call
-            </Link>
-
-            <a
+            {/* Book a Call */}
+            <StarBorder
+              as="a"
               href={`mailto:${heroConfig.email}`}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted sm:text-sm"
+              {...starProps}
+              backgroundColor="var(--card)"
+              textColor="var(--foreground)"
+              color={starTheme === "dark" ? "#ffffff" : "#09090b"}
+              trailColor={starTheme === "dark" ? "#a1a1aa" : "#52525b"}
+              className="hero-star-button hero-star-button--secondary"
             >
-              <EnvelopeSimple className="size-3.5 sm:size-4" weight="bold" />
+              <CalendarBlank weight="bold" />
+              Book a call
+            </StarBorder>
+
+            {/* Email Me */}
+            <StarBorder
+              as="a"
+              href={`mailto:${heroConfig.email}`}
+              {...starProps}
+              backgroundColor="var(--card)"
+              textColor="var(--foreground)"
+              color={starTheme === "dark" ? "#ffffff" : "#09090b"}
+              trailColor={starTheme === "dark" ? "#a1a1aa" : "#52525b"}
+              className="hero-star-button hero-star-button--secondary"
+            >
+              <EnvelopeSimple weight="bold" />
               Email me
-            </a>
+            </StarBorder>
           </div>
         </div>
 
@@ -111,6 +152,7 @@ export function Hero() {
         <div className="flex flex-wrap gap-0.5">
           {socialLinks.map((link) => {
             const Icon = iconMap[link.icon];
+
             const external =
               link.href.startsWith("https://") ||
               link.href.startsWith("http://");
