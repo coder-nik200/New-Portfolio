@@ -113,8 +113,10 @@ export function Hero() {
           <div className="mt-3 flex flex-wrap items-center gap-2">
             {/* Book a Call */}
             <StarBorder
-              as="a"
-              href={`mailto:${heroConfig.email}`}
+              as={Link}
+              href={heroConfig.calendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               {...starProps}
               backgroundColor="var(--card)"
               textColor="var(--foreground)"
