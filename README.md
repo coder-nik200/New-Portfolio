@@ -4,8 +4,6 @@ Personal portfolio of Nitish Kumar Bharti, an MCA student and full-stack develop
 
 Built with **Next.js, TypeScript, Tailwind CSS, GSAP, and MDX** — a minimal, interactive space showcasing my projects, experience, skills, and everything I'm learning along the way.
 
-### Portfolio Preview
-
 <img width="2464" height="1728" alt="Gemini_Generated_Image_idcm7hidcm7hidcm" src="https://github.com/user-attachments/assets/52403ee2-3f5c-403b-9d47-354e5c5fafa8" />
 
 **Live:** [Portfolio](https://nitversedev.vercel.app/) · **GitHub:** [@coder-nik200](https://github.com/coder-nik200/nitish-portfolio)
