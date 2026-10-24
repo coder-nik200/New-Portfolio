@@ -1,58 +1,56 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Container } from "@/components/container";
-import FlexCarousel, { type FlexCarouselItem } from "@/components/FlexCarousel";
 
+import CircularCarousel, {
+  type CircularCarouselItem,
+} from "@/components/CircularCarousel";
+
+import { Container } from "@/components/container";
 import { projects } from "@/config/projects";
 
 export function ProjectsCarousel() {
   const router = useRouter();
 
-  const items: FlexCarouselItem[] = projects.map((project) => ({
+  const items: CircularCarouselItem[] = projects.map((project) => ({
     src: project.cover ?? "/assets/projects/placeholder.png",
     alt: project.title,
     title: project.title,
-    // subtitle: project.description,
   }));
 
   return (
     <section className="w-full overflow-hidden py-12">
       {/* Heading */}
-      <div className="mx-auto mb-8 max-w-6xl px-4">
-        <Container className="mb-8">
-          <p className="text-sm text-secondary">Selected Work</p>
+      <Container className="mb-8">
+        <p className="text-sm text-secondary">Selected Work</p>
+        <h2 className="mt-1 text-3xl font-bold tracking-tight text-foreground">
+          Projects
+        </h2>
+      </Container>
 
-          <h2 className="mt-1 text-3xl font-bold tracking-tight text-foreground">
-            Projects
-          </h2>
-        </Container>
-      </div>
-
-      {/* Carousel */}
-      <div className="relative h-[450px] w-full md:h-[600px]">
-        <FlexCarousel
+      {/* Circular Carousel */}
+      <div className="relative h-[260px] w-full sm:h-[360px] lg:h-[440px]">
+        <CircularCarousel
           items={items}
-          preset="liquid"
+          preset="panorama"
           intro="rise"
-          fit="landscape"
-          cardHeight={0.65}
-          gap={20}
-          radius={16}
-          bend={0.34}
-          dispersion={0.45}
-          squeeze={0.2}
+          cardWidth={400}
+          aspectRatio={16 / 9}
+          gap={12}
+          tilt={0}
+          autoplay="drift"
+          speed={8}
+          draggable
+          pauseOnHover
           focusOnClick={false}
-          autoplay={false}
-          captions={true}
-          captureWheel={false}
-          onSelect={(index) => {
+          captions
+          onItemClick={(_, index) => {
             router.push(`/projects/${projects[index].slug}`);
           }}
         />
       </div>
 
-      {/* View All */}
+      {/* View All Projects */}
       <div className="mt-8 flex justify-center">
         <button
           onClick={() => router.push("/projects")}
