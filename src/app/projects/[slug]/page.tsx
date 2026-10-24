@@ -17,6 +17,7 @@ import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { projects } from "@/config/projects";
 import { createPageMetadata, pageTitle } from "@/lib/metadata";
 import StarBorder from "@/components/StarBorder";
+import { ArrowButton } from "@/components/ui/arrow-button";
 
 export const instant = false;
 
@@ -431,47 +432,38 @@ export default async function ProjectDetailPage({
           </section>
         )}
 
-        {/* Previous / next */}
         {prev && next && (
           <nav
             aria-label="More projects"
-            className="mt-20 grid gap-3 sm:grid-cols-2"
+            className="mt-20 flex w-full items-center justify-between gap-4"
           >
-            <Link
-              href={`/projects/${prev.slug}`}
-              className="group flex items-center gap-4 rounded-2xl border border-border p-4 transition-all duration-300 hover:border-foreground/30 hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border transition-all duration-300 group-hover:border-foreground/30 group-hover:bg-primary group-hover:text-background">
-                <ArrowLeft className="size-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
-              </span>
+            <div className="flex min-w-0 flex-col items-start gap-2">
+              <ArrowButton
+                href={`/projects/${prev.slug}`}
+                direction="left"
+                variant="ghost"
+              >
+                Previous
+              </ArrowButton>
 
-              <span className="min-w-0">
-                <span className="block text-xs text-muted-foreground">
-                  Previous
-                </span>
-                <span className="mt-0.5 block truncate text-base font-medium tracking-tight">
-                  {prev.title}
-                </span>
+              <span className="max-w-[140px] truncate text-sm text-muted-foreground sm:max-w-[250px]">
+                {prev.title}
               </span>
-            </Link>
+            </div>
 
-            <Link
-              href={`/projects/${next.slug}`}
-              className="group flex flex-row-reverse items-center gap-4 rounded-2xl border border-border p-4 text-right transition-all duration-300 hover:border-foreground/30 hover:bg-muted/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            >
-              <span className="flex size-10 shrink-0 items-center justify-center rounded-full border border-border transition-all duration-300 group-hover:border-foreground/30 group-hover:bg-primary group-hover:text-background">
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </span>
+            <div className="flex min-w-0 flex-col items-end gap-2 text-right">
+              <ArrowButton
+                href={`/projects/${next.slug}`}
+                direction="right"
+                variant="ghost"
+              >
+                Next
+              </ArrowButton>
 
-              <span className="min-w-0">
-                <span className="block text-xs text-muted-foreground">
-                  Next
-                </span>
-                <span className="mt-0.5 block truncate text-base font-medium tracking-tight">
-                  {next.title}
-                </span>
+              <span className="max-w-[140px] truncate text-sm text-muted-foreground sm:max-w-[250px]">
+                {next.title}
               </span>
-            </Link>
+            </div>
           </nav>
         )}
       </Container>
