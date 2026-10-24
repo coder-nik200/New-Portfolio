@@ -31,7 +31,7 @@ export const projects: Project[] = [
     date: "2026",
     description:
       "A healthcare web project focused on presenting medical information and services through a responsive, user-friendly interface.",
-    tech: ["React", "JavaScript", "CSS"],
+    tech: ["React", "Node.js", "Express.js", "MongoDB"],
     href: "https://github.com/coder-nik200",
     website: "https://medicity-frontend-zysc.vercel.app/",
     featured: true,
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     date: "2026",
     description:
       "A book-focused web application designed to provide a streamlined browsing experience with an emphasis on accessible content and clean UI.",
-    tech: ["React", "JavaScript", "CSS"],
+    tech: ["React", "Node.js", "Express.js", "MongoDB"],
     href: "https://github.com/coder-nik200",
     website: "https://book-mart-frontend.vercel.app/",
     cover: "/assets/projects/bookmart.png",

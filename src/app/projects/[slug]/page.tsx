@@ -16,6 +16,7 @@ import { Container } from "@/components/container";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { projects } from "@/config/projects";
 import { createPageMetadata, pageTitle } from "@/lib/metadata";
+import StarBorder from "@/components/StarBorder";
 
 export const instant = false;
 
@@ -186,14 +187,14 @@ export default async function ProjectDetailPage({
                 <div className="hidden w-12 sm:block" aria-hidden="true" />
               </div>
 
-              <div className="relative aspect-[16/10] w-full">
+              <div className="relative aspect-[2.35/1] w-full overflow-hidden bg-muted">
                 <Image
                   src={cover}
                   alt={`Screenshot of ${title}`}
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 1200px"
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                 />
               </div>
             </LiquidGlassCard>
@@ -413,11 +414,17 @@ export default async function ProjectDetailPage({
 
             <ul className="flex flex-wrap gap-2.5">
               {tech.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-full border border-border bg-card/50 px-4 py-2 text-sm transition-colors hover:bg-muted"
-                >
-                  {item}
+                <li key={item}>
+                  <StarBorder
+                    as="div"
+                    color="var(--tech-star-light)"
+                    thickness={1}
+                    className="tech-star-border"
+                  >
+                    <span className="relative z-10 whitespace-nowrap font-mono text-xs font-medium sm:text-sm">
+                      {item}
+                    </span>
+                  </StarBorder>
                 </li>
               ))}
             </ul>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, GithubLogo, Globe } from "@phosphor-icons/react/dist/ssr";
+
 import { Container } from "@/components/container";
 import { LiquidGlassCard } from "@/components/ui/liquid-glass";
 import { projects, type Project } from "@/config/projects";
@@ -23,12 +24,13 @@ export function ProjectCard({
       shadowIntensity="md"
       borderRadius="18px"
       blurIntensity="md"
-      className="animate-in-up-on-view group flex min-w-0 flex-col"
+      className="animate-in-up-on-view group flex min-w-0 flex-col overflow-hidden"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
+      {/* Project Cover */}
       <div
         className={cn(
-          "relative flex aspect-[16/10] items-center justify-center overflow-hidden bg-muted sm:aspect-[16/11]",
+          "relative aspect-[2.35/1] w-full overflow-hidden rounded-t-[18px] bg-muted",
           !project.cover && ["bg-linear-to-br", project.gradient],
         )}
       >
@@ -37,20 +39,19 @@ export function ProjectCard({
             src={project.cover}
             alt={`${project.title} cover`}
             fill
-            sizes="(max-width: 640px) 100vw, 400px"
-            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.035]"
+            sizes="(max-width: 640px) 100vw, 50vw"
+            className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
           />
         ) : (
-          <>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />
-            <span className="relative text-3xl font-bold tracking-tight text-foreground/20 sm:text-4xl">
-              {project.title.slice(0, 2).toUpperCase()}
-            </span>
-          </>
+          <span className="absolute inset-0 flex items-center justify-center text-3xl font-bold text-foreground/20">
+            {project.title.slice(0, 2).toUpperCase()}
+          </span>
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
+      {/* Project Information */}
+      <div className="flex min-w-0 flex-1 flex-col p-5">
+        {/* Title and Links */}
         <div className="flex items-start justify-between gap-3">
           <Link
             href={detailHref}
@@ -58,6 +59,7 @@ export function ProjectCard({
           >
             {project.title}
           </Link>
+
           <div className="flex shrink-0 items-center gap-1.5">
             {project.website && (
               <Link
@@ -70,6 +72,7 @@ export function ProjectCard({
                 <Globe className="size-5" />
               </Link>
             )}
+
             <Link
               href={project.href}
               target="_blank"
@@ -82,15 +85,19 @@ export function ProjectCard({
           </div>
         </div>
 
+        {/* Description */}
         <p className="mt-4 flex-1 text-base leading-relaxed text-secondary">
           {project.description}
         </p>
 
+        {/* Technologies */}
         <div className="mt-6">
           <p className="text-sm font-medium text-secondary">Technologies</p>
+
           <div className="mt-3 flex flex-wrap gap-2">
             {project.tech.map((tech) => {
               const icon = getTechIcon(tech);
+
               return icon ? (
                 <div
                   key={tech}
@@ -118,6 +125,7 @@ export function ProjectCard({
           </div>
         </div>
 
+        {/* Status and Details */}
         <div className="mt-7 flex items-center justify-between gap-3">
           <span
             className={cn(
@@ -131,6 +139,7 @@ export function ProjectCard({
                 isOperational ? "bg-emerald-400" : "bg-rose-400",
               )}
             />
+
             {isOperational ? "All Systems Operational" : "Building"}
           </span>
 
@@ -159,15 +168,20 @@ export function ProjectsGrid({
   showViewAll?: boolean;
 }) {
   const source = items ?? projects;
-  const list = limit && !items ? source.filter((p) => p.featured) : source;
+
+  const list =
+    limit && !items ? source.filter((project) => project.featured) : source;
+
   const displayed = limit ? list.slice(0, limit) : list;
 
   return (
     <Container>
+      {/* Section Heading */}
       {showHeading && (
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-sm text-secondary">Featured</p>
+
             <h2 className="mt-1 text-3xl font-bold tracking-tight text-foreground">
               Projects
             </h2>
@@ -175,12 +189,14 @@ export function ProjectsGrid({
         </div>
       )}
 
+      {/* Projects Grid */}
       <div className="grid gap-5 sm:grid-cols-2">
         {displayed.map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} />
         ))}
       </div>
 
+      {/* View All Button */}
       {showViewAll && (
         <div className="mt-10 flex justify-center">
           <Link
