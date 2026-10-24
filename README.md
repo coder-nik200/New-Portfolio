@@ -18,7 +18,6 @@ Built with **Next.js, TypeScript, Tailwind CSS, GSAP, and MDX** — a minimal, i
 - **About** — My journey, education, interests, and development story.
 - **Projects** — Interactive project cards with GitHub repositories, live demos, and detailed writeups.
 - **Work** — Professional experience, internships, and contributions.
-- **Blog** — MDX-powered articles and development notes.
 - **Resume** — Resume viewer with download option.
 - **Command Palette** — Quickly navigate pages using `⌘K / Ctrl+K`.
 - **Theme Toggle** — Light and dark mode.
