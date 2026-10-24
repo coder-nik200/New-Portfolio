@@ -8,7 +8,7 @@ Built with **Next.js, TypeScript, Tailwind CSS, GSAP, and MDX** — a minimal, i
 
 <img width="2464" height="1728" alt="Gemini_Generated_Image_idcm7hidcm7hidcm" src="https://github.com/user-attachments/assets/52403ee2-3f5c-403b-9d47-354e5c5fafa8" />
 
-**Live:** [Portfolio](https://nitish-portfolio17.netlify.app) · **GitHub:** [@coder-nik200](https://github.com/coder-nik200/nitish-portfolio)
+**Live:** [Portfolio](https://nitversedev.vercel.app/) · **GitHub:** [@coder-nik200](https://github.com/coder-nik200/nitish-portfolio)
 
 ---
 
